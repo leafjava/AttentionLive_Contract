@@ -32,7 +32,7 @@ AttentionLive_contract/
 **2. StreamerStakingPool**
 - 主播质押 ATT 创建直播任务
 - 基于观众参与度计算奖励
-- 7天提取冷却期
+- 10秒提取冷却期（测试配置，生产环境建议7天）
 - 5% 平台手续费
 
 **3. ViewerRewardPool**
@@ -116,7 +116,7 @@ graph LR
 | 最长直播时长 | 86400 秒 (24小时) | StreamerStakingPool |
 | 奖励率范围 | 100-5000 基点 (1%-50%) | StreamerStakingPool |
 | 平台手续费 | 500 基点 (5%) | StreamerStakingPool |
-| 提取冷却期 | 7 天 | StreamerStakingPool |
+| 提取冷却期 | 10 秒（测试配置） | StreamerStakingPool |
 | 积分兑换率 | 1000:1 | ViewerRewardPool |
 | 最低兑换积分 | 1000 | ViewerRewardPool |
 | 兑换冷却期 | 1 小时 | ViewerRewardPool |
