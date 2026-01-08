@@ -37,8 +37,8 @@ contract StreamerStakingPool is Ownable, ReentrancyGuard {
     // Minimum stake amount (1000 ATT)
     uint256 public minStakeAmount = 1000 * 10**18;
     
-    // Unstake cooldown period (7 days)
-    uint256 public unstakeCooldown = 7 days;
+    // Unstake cooldown period (10 seconds for testing)
+    uint256 public unstakeCooldown = 10; // 10 seconds
     
     // Platform fee rate (5% = 500 basis points)
     uint256 public platformFeeRate = 500;
@@ -99,7 +99,7 @@ contract StreamerStakingPool is Ownable, ReentrancyGuard {
         uint256 rewardRate
     ) external nonReentrant returns (uint256 taskId) {
         require(stakedAmount >= minStakeAmount, "Pool: stake too low");
-        require(duration >= 300, "Pool: min 5 minutes"); // At least 5 minutes
+        require(duration >= 10, "Pool: min 10 seconds"); // At least 10 seconds for testing
         require(duration <= 86400, "Pool: max 24 hours"); // Max 24 hours
         require(rewardRate >= 100 && rewardRate <= 5000, "Pool: invalid reward rate"); // 1% to 50%
 
